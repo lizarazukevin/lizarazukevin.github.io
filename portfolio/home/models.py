@@ -24,12 +24,18 @@ TYPES = [
         ("dev", "Development"),
         ("soft", "Soft"),
     ]
+DEGREE = [
+        ("B.S.", "Bachelor of Science"),
+        ("M.S.", "Master of Science"),
+        ("M.E.", "Master of Engineering"),
+]
 
 # Education Data
 class Education(models.Model):
     school_name = models.CharField(max_length=50)
+    degree_type = models.CharField(max_length=30, choices=DEGREE, default="B.S.")
     major = models.CharField(max_length=50)
-    minor = models.CharField(max_length=50, null=True, blank=True)
+    minor = models.CharField(max_length=50, blank=True, null=True)
     start_date = models.DateField(db_comment="Start Education Date")
     end_date = models.DateField(db_comment="Graduation Date", default="Present")
     country = models.CharField(max_length=50)
@@ -38,10 +44,16 @@ class Education(models.Model):
     coursework = ArrayField(models.CharField(max_length=30), blank=True, null=True)
     img_url = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.degree_type + ", " + self.school_name
+
 # Skills Data
 class Skill(models.Model):
     skill_name = models.CharField(max_length=30, unique=True)
-    skill_type = models.CharField(max_length=20, choices=TYPES, null=True, blank=True)
+    skill_type = models.CharField(max_length=20, choices=TYPES, blank=True, null=True)
+
+    def __str__(self):
+        return self.skill_name
     
 # Experiences Data
 class Experience(models.Model):
@@ -49,9 +61,13 @@ class Experience(models.Model):
     role = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
     start = models.DateField(db_comment="Start Experience")
-    end = models.DateField(db_comment="End Experience", default="Present")
+    end = models.DateField(db_comment="End Experience", blank=True, null=True)
     country = models.CharField(max_length=50)
     state = models.CharField(max_length=20, choices=STATES, default="VA")
     city = models.CharField(max_length=25)
+    summary = models.CharField(max_length=500, blank=True, null=True)
     description = ArrayField(models.CharField(max_length=200), blank=True, null=True)
     img_url = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.company_name + ", " + self.role + ", " + self.title
