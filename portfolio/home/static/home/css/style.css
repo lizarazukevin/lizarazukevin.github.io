@@ -61,6 +61,39 @@ body {
     margin-left: -150px;
 }
 
+/* Animation */
 #rotating-roles {
     color: #F06543;
+    overflow: hidden;
+    height: 80px;
+    line-height: 10px;
+}
+
+span {
+    display: block;
+    height: 100%;
+    animation: spin_words 30s infinite;
+}
+
+@keyframes spin_words {
+    5% { transform: translateY(-70%); }
+    10% { transform: translateY(-60%); }
+    15% { transform: translateY(-170%); }
+    20% { transform: translateY(-160%); }
+    25% { transform: translateY(-270%); }
+    30% { transform: translateY(-260%); }
+    35% { transform: translateY(-370%); }
+    40% { transform: translateY(-360%); }
+    45% { transform: translateY(-470%); }
+    50% { transform: translateY(-460%); }
+    55% { transform: translateY(-570%); }
+    60% { transform: translateY(-560%); }
+    65% { transform: translateY(-670%); }
+    70% { transform: translateY(-660%); }
+    75% { transform: translateY(-770%); }
+    80% { transform: translateY(-760%); }
+    85% { transform: translateY(-870%); }
+    90% { transform: translateY(-860%); }
+    95% { transform: translateY(30%); }
+    100% { transform: translateY(60%); }
 }
