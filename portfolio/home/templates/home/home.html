@@ -6,15 +6,57 @@
     <title>Kevin Lizarazu</title>
     <link rel="icon" href="{% static 'home/imgs/llama.png' %}">
     <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+
+    <!-- Added here to import image from static as background -->
+    <style>
+        .header-container {
+            background-image: url('{% static "home/imgs/salt-background.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            align-items: center;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Index Page!</h1>
+    <!-- Navigation Bar -->
+    <nav class="nav-bar-container">
+        <div class="nav-item">
+            <a href="{% url 'home:home' %}"><img style="height: 40px;" src="{% static 'home/imgs/icons/home-light.svg' %}"></a> <br>
+        </div>
+        <div class="nav-item">
+            <a href="{% url 'home:career' %}"><img style="height: 40px;" src="{% static 'home/imgs/icons/career-light.svg' %}"></a> <br>
+        </div>
+        <div class="nav-item">
+            <a href="{% url 'home:resume' %}"><img style="height: 40px;" src="{% static 'home/imgs/icons/resume-light.svg' %}"></a>
+        </div>
+        <div class="nav-item">
+            <a href="{% url 'home:contact' %}"><img style="height: 40px;" src="{% static 'home/imgs/icons/email-light.svg' %}"></a>
+        </div>
+    </nav>
 
-    <a href="{% url 'home:career' %}">Go To Career Page</a> <br>
-    <a href="{% url 'home:resume' %}">Go To Resume Page</a> <br>
-    <a href="{% url 'home:contact' %}">Go To Contact Page</a> <br>
+    <!-- Main Content -->
+    <div class="main-content">
+        <!--Header Continer-->
+        <div class="header-container" >
+            <div class="name-item">
+                <h1 id="header-title">Hello I'm Kevin <br>And I'm
+                    <div id="rotating-roles">A Software Developer</div>
+                </h1>
+            </div>
+            <div class="picture-item">
+                <img id=header-pic style="height:300px;" src="{% static 'home/imgs/llama.png' %}">
+            </div>
+        </div>
 
+    </div>
+
+    <!-- Connect to JS script -->
+    <script src="{% static 'home/js/home.js' %}"></script>
 
 </body>
 

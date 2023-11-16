@@ -13,6 +13,13 @@
 
     <a href="{% url 'home:home' %}"> Go Back </a>
 
+    <h3>List of Careers</h3>
+    <ul>
+        {% for experience in experience_list %}
+            <li> {{experience.company_name}}, {{experience.role}} </li>
+        {% endfor %}
+    </ul>
+
 </body>
 
 </html>
