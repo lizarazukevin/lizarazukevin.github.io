@@ -1,55 +1,27 @@
 /* About Navigation Button Functionality */
-let aboutSummaryButton = document.getElementById("about-summary-button");
-let aboutEducationButton = document.getElementById("about-education-button");
-let aboutSkillsButton = document.getElementById("about-skills-button");
+const buttons = [
+    { button: document.getElementById("about-summary-button"), section: document.querySelector(".about-summary") },
+    { button: document.getElementById("about-education-button"), section: document.querySelector(".about-education") },
+    { button: document.getElementById("about-skills-button"), section: document.querySelector(".about-skills") }
+  ];
 
-let aboutSections = [".about-summary", ".about-education", ".about-skills"];
 
 const clearActive = () => {
-    // clear any active buttons
-    let navItems = document.querySelectorAll(".about-nav-item");
-    for (let i = 0; i < navItems.length; i++) {
-        if (navItems[i].classList.contains("about-active")) {
-            navItems[i].classList.remove("about-active");
-            navItems[i].classList.add("about-unactive");
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].button.classList.contains("about-active")) {
+            buttons[i].button.classList.remove("about-active");
+            buttons[i].button.classList.add("about-unactive");
         }
-    }
-
-    // make all section displays be none
-    for (let i = 0; i < aboutSections.length; i++) {
-        let section = document.querySelector(aboutSections[i]);
-        section.style.display = "none";
+        buttons[i].section.style.display = "none";
     }
 }
 
-const handleSummary = () => {
-    let content = document.querySelector(".about-summary");
-    let button = document.getElementById("about-summary-button");
-    content.style.display = "flex";
-    button.classList.add("about-active");
-}
-const handleEducation = () => {
-    let content = document.querySelector(".about-education");
-    let button = document.getElementById("about-education-button");
-    content.style.display = "flex";
-    button.classList.add("about-active");
-}
-const handleSkills = () => {
-    let content = document.querySelector(".about-skills");
-    let button = document.getElementById("about-skills-button");
-    content.style.display = "flex";
-    button.classList.add("about-active");
+const handleAboutNav = (val) => {
+    clearActive();
+    buttons[val].button.classList.add("about-active");
+    buttons[val].section.style.display = "flex";
 }
 
-aboutSummaryButton.addEventListener('click', () => {
-    clearActive();
-    handleSummary();
-})
-aboutEducationButton.addEventListener('click', () => {
-    clearActive();
-    handleEducation();
-})
-aboutSkillsButton.addEventListener('click', () => {
-    clearActive();
-    handleSkills();
-})
+buttons[0].button.addEventListener('click', () => handleAboutNav(0));
+buttons[1].button.addEventListener('click', () => handleAboutNav(1));
+buttons[2].button.addEventListener('click', () => handleAboutNav(2));
