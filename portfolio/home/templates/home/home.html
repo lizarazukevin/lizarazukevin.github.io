@@ -99,7 +99,19 @@
                     </span>
 
                     <span class="about-education">
-                        <p>Test Education</p>
+                        {% for education in education_list %}
+                            <span class="education-items-top">
+                                <p class="edu-top-item">{{education.school_name}}</p>
+                                <p class="edu-top-item">{{education.city}}, {{education.state}}</p>
+                                <p class="edu-top-item">{{education.start_date|date:'m/Y'}} - {{education.end_date|date:'m/Y'}}</p>
+                            </span>
+                            <span class="education-items-bottom">
+                                <p><b>{{education.degree_type}} - </b> {{education.major}}</p>
+                                {% if education.minor %}
+                                    <p><b>Minor - </b> {{education.minor}}</p>
+                                {% endif %}
+                            </span>
+                        {% endfor %}
                     </span>
                     
                     <span class="about-skills">
