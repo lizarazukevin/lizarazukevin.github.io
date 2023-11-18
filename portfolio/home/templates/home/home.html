@@ -100,11 +100,14 @@
 
                     <span class="about-education">
                         {% for education in education_list %}
-                            <span class="education-items-top">
-                                <p class="edu-top-item">{{education.school_name}}</p>
-                                <p class="edu-top-item">{{education.city}}, {{education.state}}</p>
-                                <p class="edu-top-item">{{education.start_date|date:'m/Y'}} - {{education.end_date|date:'m/Y'}}</p>
-                            </span>
+                            <div class="education-w-image">
+                                <img src="{{education.img_url}}" height="200px">
+                                <span class="education-items-top">
+                                    <p class="edu-top-item">{{education.school_name}}</p>
+                                    <p class="edu-top-item">{{education.city}}, {{education.state}}</p>
+                                    <p class="edu-top-item">{{education.start_date|date:'m/Y'}} - {{education.end_date|date:'m/Y'}}</p>
+                                </span>
+                            </div>
                             <span class="education-items-bottom">
                                 <p><b>{{education.degree_type}} - </b> {{education.major}}</p>
                                 {% if education.minor %}
@@ -115,16 +118,54 @@
                     </span>
                     
                     <span class="about-skills">
-                        <p>Test Skills</p>
+                        <span class="lang-skill-top">
+                            <p style="text-decoration: underline;">Languages</p>
+                            <div class="lang-skill-bot">
+                                {% for skill in skill_list %}
+                                    {% if skill.skill_type == "lang" %}
+                                        <p class="lang-skill">{{skill.skill_name}}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </span>
+                        <span class="pack-skill-top">
+                            <p style="text-decoration: underline;">Packges</p>
+                            <div class="pack-skill-bot">
+                                {% for skill in skill_list %}
+                                    {% if skill.skill_type == "pack" %}
+                                        <p class="pack-skill">{{skill.skill_name}}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </span>
+                        <span class="dev-skill-top">
+                            <p style="text-decoration: underline;">Development</p>
+                            <div class="dev-skill-bot">
+                                {% for skill in skill_list %}
+                                    {% if skill.skill_type == "dev" %}
+                                        <p class="dev-skill">{{skill.skill_name}}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </span>
+                        <span class="soft-skill-top">
+                            <p style="text-decoration: underline;">Soft</p>
+                            <div class="soft-skill-bot">
+                                {% for skill in skill_list %}
+                                    {% if skill.skill_type == "soft" %}
+                                        <p class="soft-skill">{{skill.skill_name}}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </span>
                     </span>
-
                 </div>
             </div>
         </section>
 
         <!-- Organizations -->
         <section class="orgs-container">
-            <p>Test</p>
+            <p></p>
         </section>
 
     </div>
