@@ -11,7 +11,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #E0DFD5;
+    background-color: #E8E9EB;
 }
 
 /* Vertical Navigation Bar and Items */
@@ -25,7 +25,7 @@ html, body {
     height: 100%;
     width: 60px;
     padding-right: 10px;
-    z-index: 2;
+    z-index: 3;
     overflow: hidden;
     transition: width 200ms ease;
 
@@ -82,6 +82,8 @@ html, body {
     background-position: center center;
     align-items: center;
     box-shadow: 2px 15px 15px rgba(49, 54, 56, 0.5);
+    z-index: 2;
+    margin-left: 140px;
 }
 .name-item {
     width: 850px;
@@ -98,16 +100,18 @@ html, body {
 }
 
 /* About Section */
+.bruh-container {
+    width: 100vw;
+    box-shadow: 2px 5px 10px rgba(49, 54, 56, 0.5);
+    margin-left: 140px;
+    z-index: 1;
+}
 .about-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     margin-top: 80px;
     margin-bottom: 80px;
     height: 100%;
-    margin-left: 5%;
-}
-.about-right {
-    margin-left: 20%;
 }
 .about-left img{
     border-radius: 8px;
@@ -182,7 +186,6 @@ html, body {
 #about-title {
     color: #313638;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    text-decoration: underline;
 }
 
 /* Education Section */
@@ -258,9 +261,11 @@ html, body {
     width: 100%;
     text-align: center;
     color: #313638;
-    box-shadow: -2px -15px 15px rgba(49, 54, 56, 0.5);
-    /* background-image: linear-gradient(90deg, #E8E9EB, #313638 , #E8E9EB); */
-    padding: 20px 0 20px 0;
+    /* box-shadow: -2px -15px 15px rgba(49, 54, 56, 0.5); */
+    background: linear-gradient(135deg, #e66465, #E8E9EB 80%, #9198e5);
+    z-index: 0;
+    padding-bottom: 55px;
+    margin-left: 140px;
 }
 .organizations {
     display: flex;
@@ -271,6 +276,114 @@ html, body {
 .org-item img {
     height: 100px;
     cursor: pointer;
+}
+
+/* Contact Section */
+.contact-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #E8E9EB;
+    width: 100%;
+    padding: 50px 0 50px 0;
+    margin-left: 140px;
+    box-shadow: 2px -5px 10px rgba(49, 54, 56, 0.5);
+    z-index: 1;
+}
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: auto;
+}
+.contact-left-items {
+    display: flex;
+}
+.contact-bot-image {
+    -webkit-filter: drop-shadow(8px 8px 8px #313638);
+    filter: drop-shadow(8px 8px 8px #313638);
+    width: 300px;
+}
+.under-icons {
+    display: flex;
+    justify-content: center;
+}
+.contact-icons {
+    height: 60px;
+    color:#313638;
+    width: 40%;
+}
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10px;
+    width: 30%;
+}
+#contact-title {
+    color: #313638;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+#form-name, #form-email {
+    width: 100%;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+    padding: 10px 15px 10px 15px;
+    color: #313638;
+    font-weight: 600;
+    height: 50px;
+    font-size: 0.7em;
+    border-width: 0px;
+}
+#form-message {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    margin: 10px 0 10px 0;
+    padding: 10px 15px 10px 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #313638;
+    font-size: 0.7em;
+    border-width: 0px;
+}
+#send-button {
+    background-color: tomato;
+    color: #313638;
+    border-radius: 8px;
+    padding: 10px 8px 10px 8px;
+    margin-top: 20px;
+    width: 30%;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.7em;
+    border-width: 0px;
+}
+#send-button:active {
+    background-color: #F09D51;
+}
+
+/* Apposable Errors */
+.contact-error {
+    border-color: #e66465;
+    background-color: pink;
+}
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    font-size: 10px;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background-color: #313638;
+    color: white;
+    margin-left: 140px;
 }
 
 /* Animations */

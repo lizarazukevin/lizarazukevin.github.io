@@ -70,6 +70,7 @@
         </section>
 
         <!-- About Section -->
+        <div class="bruh-container">
         <section class="about-container">
             <div class="about-left">
                 <img src="{% static 'home/imgs/about-me/kevin1.jpg' %}">
@@ -162,10 +163,11 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Organizations -->
         <section class="orgs-container">
-            <h2>Organizations</h2>
+            <h2 style="text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">Organizations</h2>
             <span class="organizations">
                 <div class="org-item">
                     <a target="_blank" href="https://buildyourfuture.withgoogle.com/events/latinxstudentleadershipsummit"><img  src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png"></a>
@@ -187,6 +189,51 @@
                 </div>
             </span>
         </section>
+
+        <section class="contact-container">
+            <div class="contact-left">
+                <h2 id="contact-title">Contact Me</h2>
+                <div class="contact-left-items">
+                    <a target="_blank" href="https://www.instagram.com/kev1nla/"><img class="contact-icons" src="{% static 'home/imgs/icons/instagram-dark.svg' %}"></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/klizarazu/"><img class="contact-icons" src="{% static 'home/imgs/icons/linkedin-dark.svg' %}"></a>
+                    <a target="_blank" href="https://github.com/lizarazukevin"><img class="contact-icons" src="{% static 'home/imgs/icons/github-dark.svg' %}"></a>
+                    <a target="_blank" href="https://lizarazukevin.medium.com/"><img class="contact-icons" src="{% static 'home/imgs/icons/medium-dark.svg' %}"></a>
+                    <a target="_blank" href="https://stackoverflow.com/users/22571625/kevin-lizarazu-ampuero"><img class="contact-icons" src="{% static 'home/imgs/icons/stack-overflow-dark.svg' %}"></a>
+                </div>
+                <div class="under-icons">
+                    <img class="contact-bot-image" src="{% static 'home/imgs/sign.png' %}">
+                </div>
+            </div>
+            <div class="contact-right">
+                <form class="contact-form" style="display: none;">
+                    <input id="form-name" name="Name" type="text" placeholder="Your Name" required>
+                    <input id="form-email" name="Email" type="email" placeholder="Your Email" required>
+                    <textarea id="form-message" name="Message" type="text" placeholder="Your Message"></textarea>
+                    <button id="send-button" type="submit">Send</button>
+                </form>
+                <form name="submit-to-google-sheet" class="contact-form">
+                    <input id="form-name" name="Name" type="text" placeholder="Your Name" required>
+                    <input id="form-email" name="Email" type="email" placeholder="Your Email" required>
+                    <textarea id="form-message" name="Message" type="text" placeholder="Your Message"></textarea>
+                    <button id="send-button" type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+        <div class="footer">
+            <p>Made with ♥ Kevin Lizarazu 2023</p>
+        </div>
+
+        <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbwsgeSRWWOwGG7LBiINtwtAPaIUgfhikIBGlDFgzJP_fKfk5mze6omscpFszSxPTNQh/exec'
+            const form = document.forms['submit-to-google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
     </div>
 
     <!-- Connect to JS script -->

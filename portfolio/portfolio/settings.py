@@ -74,7 +74,7 @@ WSGI_APPLICATION = "portfolio.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DB = 1
+DB = 2
 
 if DEBUG and DB == 1:
     DATABASES = {
@@ -90,8 +90,23 @@ if DEBUG and DB == 1:
 elif DEBUG and DB == 2:
     DATABASES = {
         "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / 'db.sqlite3',
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "railway",
+            "USER" : "postgres",
+            "PASSWORD" : "-a6EB6DeBdfEAd5FBB-4dd3gbcA6d1*e",
+            "HOST" : "monorail.proxy.rlwy.net",
+            "PORT" : "59555",
+        }
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql_psycopg2",
+            "NAME": "portfolio_db",
+            "USER" : "kliza",
+            "PASSWORD" : "906236898",
+            "HOST" : "localhost",
+            "PORT" : "5432",
         }
     }
 
