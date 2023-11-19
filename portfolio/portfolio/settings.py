@@ -102,11 +102,11 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "portfolio_db",
-            "USER" : "kliza",
-            "PASSWORD" : "906236898",
-            "HOST" : "localhost",
-            "PORT" : "5432",
+            "NAME": "railway",
+            "USER" : "postgres",
+            "PASSWORD" : "-a6EB6DeBdfEAd5FBB-4dd3gbcA6d1*e",
+            "HOST" : "monorail.proxy.rlwy.net",
+            "PORT" : "59555",
         }
     }
 
